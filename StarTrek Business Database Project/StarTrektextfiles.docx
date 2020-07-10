@@ -1,0 +1,1012 @@
+
+TABLE_NAME           TABLE_TYPE  COMMENTS                                                                                           
+-------------------- ----------- ----------------------------------------                                                           
+WORKORDERPARTS       TABLE       Parts Required For Work Orders                                                                     
+WORKORDER            TABLE       Work Orders of Startrek                                                                            
+WORKCENTER           TABLE       Work Center Details                                                                                
+VENDOR               TABLE       Vendor Info                                                                                        
+PURCHASEPARTORDER    TABLE       Parts Required For Purchase                                                                        
+PURCHASEORDER        TABLE       Purchase Order Info                                                                                
+PRODUCTS             TABLE       Products of Startrek                                                                               
+PHOTOPROD            TABLE       Photography products of Star Trek                                                                  
+PARTS                TABLE       Parts of Startrek                                                                                  
+OBSERPROD            TABLE       Observation Products of Star Trek                                                                  
+EMPLOYEE             TABLE       Employee Details                                                                                   
+CUSTOMERS            TABLE       Customers of Startrek                                                                              
+CUSTOMERORDER        TABLE       Unique Customer Order report                                                                       
+
+13 rows selected.
+
+
+TABLE_NAME           COLUMN_NAME          COMMENTS                                                                                  
+-------------------- -------------------- ----------------------------------------                                                  
+CUSTOMERORDER        CUSTORDER            Customer"s order                                                                          
+CUSTOMERORDER        FNAME                First Name                                                                                
+CUSTOMERORDER        LNAME                Last Name                                                                                 
+CUSTOMERORDER        ADDRESS              Customers Address                                                                         
+CUSTOMERORDER        ORDERSPECS           Order Specifications                                                                      
+CUSTOMERORDER        CUSTNO               Customer Number                                                                           
+CUSTOMERORDER        PRODUCTTYPE          Type of Order                                                                             
+CUSTOMERS            CUSTNO               Unique Customer Number                                                                    
+CUSTOMERS            NAME                 Name                                                                                      
+CUSTOMERS            STREET               Street Address                                                                            
+CUSTOMERS            CITY                 City                                                                                      
+CUSTOMERS            POSTCODE             Postcode                                                                                  
+CUSTOMERS            CREDITLIM            Customer Credit Limit                                                                     
+EMPLOYEE             EMPLOYEENO           Unique Employee Number                                                                    
+EMPLOYEE             FNAME                First Name                                                                                
+EMPLOYEE             LNAME                Last Name                                                                                 
+EMPLOYEE             WORKCENTNO           Work Center Employee Works At                                                             
+OBSERPROD            PRODUCTTYPE          Observation product type                                                                  
+OBSERPROD            OTELEPHONE           Telephone Number                                                                          
+OBSERPROD            OEMAIL               Email address                                                                             
+PARTS                PARTNO               Unique Part Number                                                                        
+PARTS                PARTSREQ             Parts Required                                                                            
+PARTS                DATEREQUIRED         Date Required                                                                             
+PARTS                QUANTITY        Quantity                                                                                  
+PHOTOPROD            PRODUCTTYPE          PhotoProd product type                                                                    
+PHOTOPROD            TELEPHONE            Telephone Number                                                                          
+PHOTOPROD            EMAIL                Email address                                                                             
+PRODUCTS             PRODUCTTYPE          Unique Product Line Number                                                                
+PURCHASEORDER        PURCHASENO           Unique Purchase Numbe                                                                     
+PURCHASEORDER        PURCHASEDATE         Purchase Date of Order                                                                    
+PURCHASEORDER        DELIVERYLNST         Delivery Instruction                                                                      
+PURCHASEORDER        VENDORNO             Vendor Number                                                                             
+PURCHASEORDER        QUANTITY             Quantity of Order                                                                         
+PURCHASEORDER        PRICE                Total Price of Order                                                                      
+PURCHASEPARTORDER    PURCHASENO           Unique Purchase Number                                                                    
+PURCHASEPARTORDER    PARTNO               Unique Part Number                                                                        
+VENDOR               VENDORNO             Unique Vendor Number                                                                      
+VENDOR               VENDORNAME           Vendor name                                                                               
+VENDOR               STREET               Street address                                                                            
+VENDOR               CITY                 city                                                                                      
+VENDOR               POSTCODE             postcode                                                                                  
+WORKCENTER           WORKCENTNO           Unique Work Center Number                                                                 
+WORKCENTER           STARTDATE            Order Start Date                                                                          
+WORKCENTER           ENDDATE              Order End Date                                                                            
+WORKORDER            WORKORDERNO          Unique Work Order Number                                                                  
+WORKORDER            PARTREQ              Part Required                                                                             
+WORKORDER            LABOR                Labor Required                                                                            
+WORKORDER            STARTDATE            Start Date                                                                                
+WORKORDER            ENDDATE              End Date                                                                                  
+WORKORDER            CUSTORDER            Unique Customer Order                                                                     
+WORKORDERPARTS       WORKORDERNO          Unique Work Order Number                                                                  
+WORKORDERPARTS       PARTNO               Unique Part Number                                                                        
+
+52 rows selected.
+
+
+
+B DATA DEFINITION
+
+/*    Project Option: <Star Trek> 
+Purpose: Create tables  
+Author: Enrique Flores 004538390 
+*/
+
+SET PAUSE OFF
+
+SET LINESIZE 80
+
+SET PAGESIZE 55
+
+spool createTables.txt
+
+DROP TABLE ObserProd CASCADE CONSTRAINTS;
+CREATE TABLE ObserProd (
+	productType VARCHAR(10) NOT NULL,
+	oTelephone NUMBER(15),
+	oEmail VARCHAR(25),
+	CONSTRAINTS ObserProd_PK PRIMARY KEY (productType)
+);
+
+DROP TABLE CustomerOrder CASCADE CONSTRAINTS;
+CREATE TABLE CustomerOrder (
+	custOrder VARCHAR(10) NOT NULL, 
+	fName VARCHAR(10) NOT NULL ,
+	lName VARCHAR(10) NOT NULL,
+	address VARCHAR(100) NOT NULL,
+	orderSpecs VARCHAR(100) NOT NULL,
+	custNo NUMBER(10) UNIQUE NOT NULL,
+	productType VARCHAR(10) NOT NULL,
+	CONSTRAINTS CustomerOrder_PK PRIMARY KEY (custOrder)
+);
+
+DROP TABLE WorkCenter CASCADE CONSTRAINTS;
+CREATE TABLE WorkCenter (
+	workCentNo VARCHAR(10) NOT NULL,
+	startDate DATE NOT NULL,
+	endDate DATE NOT NULL,
+	CONSTRAINTS WorkCenter_PK PRIMARY KEY (workCentNo)
+);
+
+DROP TABLE Employee CASCADE CONSTRAINTS;
+CREATE TABLE Employee (
+	employeeNo NUMBER(10) NOT NULL,
+	fName VARCHAR(10) NOT NULL,
+	lName VARCHAR(10) NOT NULL,
+	workCentNo VARCHAR(10) NOT NULL,
+	CONSTRAINTS Employee_PK PRIMARY KEY (employeeNo)
+);
+
+DROP TABLE PurchasePartOrder CASCADE CONSTRAINTS;
+CREATE TABLE purchasePartOrder (
+	purchaseNo NUMBER(6) NOT NULL,
+	partNo VARCHAR(15) NOT NULL,
+	CONSTRAINTS PurchasePartOrder_PK PRIMARY KEY (purchaseNo, partNo)
+);
+
+DROP TABLE WorkOrderParts CASCADE CONSTRAINTS;
+CREATE TABLE WorkOrderParts (
+	WorkOrderNo VARCHAR(6) NOT NULL,
+	partNo VARCHAR(15) NOT NULL,
+	CONSTRAINTS WorkOrderParts_PK PRIMARY KEY (workOrderNo, partNo)
+);
+
+DROP TABLE TelProd CASCADE CONSTRAINTS;
+CREATE TABLE TelProd (
+	productType		VARCHAR(10)		NOT NULL,
+	telephone		NUMBER(15),
+	email			VARCHAR(25)		NOT NULL,
+	CONSTRAINTS TelProd_productType_PK PRIMARY KEY (productType)
+);
+
+DROP TABLE Customers CASCADE CONSTRAINTS;
+CREATE TABLE Customers (
+	custNo			NUMBER(10)		NOT NULL,
+	Name			VARCHAR(20)		NOT NULL,
+	street			VARCHAR(20)		NOT NULL,
+	city			VARCHAR(15)		NOT NULL,
+	postcode		NUMBER(5)		NOT NULL,
+	CreditLim		NUMBER(6)		NOT NULL,
+	CONSTRAINTS Customers_custNo_PK PRIMARY KEY (custNo)
+);
+
+DROP TABLE WorkOrder CASCADE CONSTRAINTS;
+CREATE TABLE WorkOrder (
+	WorkOrderNo		VARCHAR(6)		NOT NULL,
+	PartReq			VARCHAR(15)		NOT NULL,
+	Labor			VARCHAR(15)		NOT NULL,
+	startDate		DATE			NOT NULL,
+	endDate			DATE			NOT NULL,
+	custOrder		VARCHAR(10)		NOT NULL,
+	CONSTRAINTS WorkOrder_WorkOrderNo_PK PRIMARY KEY (WorkOrderNo)
+);
+
+DROP TABLE Parts CASCADE CONSTRAINTS;
+CREATE TABLE Parts (
+	partNo			VARCHAR(6)		NOT NULL,
+	partsReq		VARCHAR(15)		NOT NULL,
+	dateRequired	DATE			NOT NULL,
+	quantity		NUMBER(3)		NOT NULL,
+	CONSTRAINTS Parts_partNo_PK PRIMARY KEY (partNo)
+);
+
+DROP TABLE Products CASCADE CONSTRAINTS;
+CREATE TABLE Products (
+	productType		VARCHAR(10)		NOT NULL,
+	CONSTRAINTS Products_productType_PK PRIMARY KEY (productType)
+);
+
+DROP TABLE PhotoProd CASCADE CONSTRAINTS;
+CREATE TABLE PhotoProd (
+        productType VARCHAR(10) NOT NULL,
+        telephone NUMBER(15)NOT NULL,
+        email VARCHAR(25) NOT NULL,
+        CONSTRAINTS PhotoProd_PK PRIMARY KEY (productType)
+);
+DROP TABLE MsrmProd CASCADE CONSTRAINTS;
+CREATE TABLE MsrmProd (
+        productType VARCHAR(10) NOT NULL,
+        telephone NUMBER(15) NOT NULL,
+        email VARCHAR(25) NOT NULL,
+        CONSTRAINTS MsrmProd_PK PRIMARY KEY (productType)
+);
+DROP TABLE PurchaseOrder CASCADE CONSTRAINTS;
+CREATE TABLE PurchaseOrder (
+        purchaseNo NUMBER(6) NOT NULL,
+        purchaseDate DATE NOT NULL,
+        deliverylnst VARCHAR(25) NOT NULL,
+        vendorNo VARCHAR(10) NOT NULL,
+	quantity NUMBER(3) NOT NULL,
+        price NUMBER(6) NOT NULL,
+        CONSTRAINTS PurchaseOrder_PK PRIMARY KEY (purchaseNo)
+);
+DROP TABLE Vendor CASCADE CONSTRAINTS;
+CREATE TABLE Vendor (
+        vendorNo VARCHAR(10) NOT NULL,
+        vendorName VARCHAR(10) NOT NULL,
+        street VARCHAR(20) NOT NULL,
+        city VARCHAR(15) NOT NULL,
+        postcode NUMBER(5) NOT NULL,
+        CONSTRAINTS Vendor_PK PRIMARY KEY (VendorNo)
+);
+spool off
+
+/*    Project Option: <Star Trek> 
+Purpose: Alter tables script files; adds foreign keys  
+Author: Enrique Flores 004538390 
+*/
+SET PAUSE OFF
+
+SET LINESIZE 80
+
+SET PAGESIZE 55
+
+spool alterTables.txt
+ALTER TABLE CustomerOrder
+	ADD CONSTRAINTS Customer_PT_FK FOREIGN KEY (productType) REFERENCES Products(productType) 
+	ON DELETE SET NULL DEFERRABLE INITIALLY IMMEDIATE;
+
+	
+ALTER TABLE CustomerOrder
+        ADD CONSTRAINTS Customer_No_FK FOREIGN KEY (custNo) REFERENCES Customers(custNo) 
+        ON DELETE SET NULL DEFERRABLE INITIALLY IMMEDIATE;
+
+
+ALTER TABLE ObserProd
+        ADD CONSTRAINTS Obser_Type_FK FOREIGN KEY (productType) REFERENCES Products(productType) 
+        ON DELETE SET NULL DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE TelProd
+	ADD CONSTRAINTS TelProd_FK FOREIGN KEY (productType) REFERENCES Products(productType)
+	ON DELETE SET NULL DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE Employee
+        ADD CONSTRAINTS Employee_WC_FK FOREIGN KEY (workCentNo) REFERENCES WorkCenter(workCentNo)                        
+        ON DELETE SET NULL DEFERRABLE INITIALLY IMMEDIATE;
+
+
+ALTER TABLE PurchasePartOrder 
+        ADD CONSTRAINTS PPO_PN_FK FOREIGN KEY (purchaseNo) REFERENCES PurchaseOrder(PurchaseNo)                        
+        ON DELETE SET NULL DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE PurchasePartOrder
+        ADD CONSTRAINTS PPO_Parts_FK FOREIGN KEY (partNo) REFERENCES Parts(partNo)
+        ON DELETE SET NULL DEFERRABLE INITIALLY IMMEDIATE;
+
+
+ALTER TABLE WorkOrderParts
+        ADD CONSTRAINTS WOP_WO_FK FOREIGN KEY (WorkOrderNo) REFERENCES WorkOrder(workOrderNo)                        
+        ON DELETE SET NULL DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE WorkOrderParts
+        ADD CONSTRAINTS WOP_Parts_FK FOREIGN KEY (partNo) REFERENCES Parts(partNo)                        
+        ON DELETE SET NULL DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE WorkOrder
+	ADD CONSTRAINTS WorkOrder_CustomerOrder_FK FOREIGN KEY (custOrder)
+	REFERENCES CustomerOrder(custOrder)
+	ON DELETE SET NULL DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE PurchaseOrder
+        ADD CONSTRAINTS PurchaseOrder_VN_FK FOREIGN KEY (vendorNo) REFERENCES Vendor(vendorNo)
+        ON DELETE SET NULL DEFERRABLE INITIALLY IMMEDIATE;
+spool off
+
+/*    Project Option: <Star Trek> 
+Purpose: Comment tables  
+Author: Enrique Flores 004538390 
+*/
+SET PAUSE OFF
+
+SET LINESIZE 80
+
+SET PAGESIZE 55
+
+spool tableComments.txt
+COMMENT ON TABLE ObserProd IS 'Observation Products of Star Trek';
+COMMENT ON COLUMN ObserProd.productType IS 'Observation product type';
+COMMENT ON COLUMN ObserProd.oTelephone IS 'Telephone Number';
+COMMENT ON COLUMN ObserProd.oEmail IS 'Email address';
+
+COMMENT ON TABLE CustomerOrder IS 'Unique Customer Order report';
+COMMENT ON COLUMN CustomerOrder.custOrder IS 'Customer"s order';
+COMMENT ON COLUMN CustomerOrder.fName IS 'First Name';
+COMMENT ON COLUMN CustomerOrder.lName IS 'Last Name';
+COMMENT ON COLUMN CustomerOrder.address IS 'Customers Address';
+COMMENT ON COLUMN CustomerOrder.orderSpecs IS 'Order Specifications';
+COMMENT ON COLUMN CustomerOrder.productType IS 'Type of Order';
+COMMENT ON COLUMN CustomerOrder.custNo IS 'Customer Number';
+
+COMMENT ON TABLE WorkCenter IS 'Work Center Details';
+COMMENT ON COLUMN WorkCenter.workCentNo IS 'Unique Work Center Number';
+COMMENT ON COLUMN WorkCenter.startDate IS 'Order Start Date';
+COMMENT ON COLUMN WorkCenter.endDate IS 'Order End Date';
+
+COMMENT ON TABLE Employee IS 'Employee Details';
+COMMENT ON COLUMN Employee.employeeNo IS 'Unique Employee Number';
+COMMENT ON COLUMN Employee.fName IS 'First Name';
+COMMENT ON COLUMN Employee.lName IS 'Last Name';
+COMMENT ON COLUMN Employee.workCentNo IS 'Work Center Employee Works At';
+
+COMMENT ON TABLE PurchasePartOrder IS 'Parts Required For Purchase';
+COMMENT ON COLUMN PurchasePartOrder.purchaseNo IS 'Unique Purchase Number';
+COMMENT ON COLUMN PurchasePartOrder.partNo IS 'Unique Part Number';
+
+COMMENT ON TABLE WorkOrderParts IS 'Parts Required For Work Orders';
+COMMENT ON COLUMN WorkOrderParts.WorkOrderNo IS 'Unique Work Order Number';
+COMMENT ON COLUMN WorkOrderParts.partNo IS 'Unique Part Number';
+
+COMMENT ON TABLE TelProd IS 'Products of Startrek';
+COMMENT ON COLUMN TelProd.productType IS 'Unique Product Line Number';
+COMMENT ON COLUMN TelProd.telephone IS 'Telephone number';
+COMMENT ON COLUMN TelProd.email IS 'Email address';
+
+COMMENT ON TABLE Customers IS 'Customers of Startrek';
+COMMENT ON COLUMN Customers.custNo IS 'Unique Customer Number';
+COMMENT ON COLUMN Customers.Name IS 'Name';
+COMMENT ON COLUMN Customers.street IS 'Street Address';
+COMMENT ON COLUMN Customers.city IS 'City';
+COMMENT on COLUMN Customers.postcode IS 'Postcode';
+COMMENT on COLUMN Customers.CreditLim IS 'Customer Credit Limit';
+
+COMMENT ON TABLE WorkOrder IS 'Work Orders of Startrek';
+COMMENT ON COLUMN WorkOrder.WorkOrderNo IS 'Unique Work Order Number';
+COMMENT ON COLUMN WorkOrder.PartReq IS 'Part Required';
+COMMENT ON COLUMN WorkOrder.Labor IS 'Labor Required';
+COMMENT ON COLUMN WorkOrder.startDate IS 'Start Date';
+COMMENT ON COLUMN WorkOrder.endDate IS 'End Date';
+COMMENT ON COLUMN WorkOrder.custOrder IS 'Unique Customer Order';
+
+COMMENT ON TABLE Parts IS 'Parts of Startrek';
+COMMENT ON COLUMN Parts.partNo IS 'Unique Part Number';
+COMMENT ON COLUMN Parts.partsReq IS 'Parts Required';
+COMMENT ON COLUMN Parts.dateRequired IS 'Date Required';
+COMMENT ON COLUMN Parts.quantity IS 'Quantity';
+
+COMMENT ON TABLE Products IS 'Products of Startrek';
+COMMENT ON COLUMN Products.productType IS 'Unique Product Line Number';
+COMMENT ON COLUMN Products.email IS 'Email address';
+COMMENT ON COLUMN Products.telephone IS 'Telephone number';
+
+COMMENT ON TABLE PhotoProd IS 'Photography products of Star Trek';
+COMMENT ON COLUMN PhotoProd.productType IS 'PhotoProd product type';
+COMMENT ON COLUMN PhotoProd.telephone IS 'Telephone Number';
+COMMENT ON COLUMN PhotoProd.email IS 'Email address';
+
+COMMENT ON TABLE MsrmProd IS 'Measurments of Star Trek';
+COMMENT ON COLUMN MsrmProd.productType IS 'PhotoProd product type';
+COMMENT ON COLUMN MsrmProd.telephone IS 'Telephone Number';
+COMMENT ON COLUMN MsrmProd.email IS 'Email address';
+
+COMMENT ON TABLE PurchaseOrder IS 'Purchase Order Info ';
+COMMENT ON COLUMN PurchaseOrder.purchaseNo IS 'Unique Purchase Numbe';
+COMMENT ON COLUMN PurchaseOrder.purchaseDate IS 'Purchase Date of Order';
+COMMENT ON COLUMN PurchaseOrder.deliverylnst IS 'Delivery Instruction';
+COMMENT ON COLUMN PurchaseOrder.vendorNo IS 'Vendor Number';
+COMMENT ON COLUMN PurchaseOrder.quantity IS 'Quantity of Order';
+COMMENT ON COLUMN PurchaseOrder.price IS 'Total Price of Order';
+
+COMMENT ON TABLE Vendor IS 'Vendor Info';
+COMMENT ON COLUMN Vendor.vendorNo IS 'Unique Vendor Number';
+COMMENT ON COLUMN Vendor.vendorName IS 'Vendor name';
+COMMENT ON COLUMN Vendor.street IS 'Street address';
+COMMENT ON COLUMN Vendor.city IS 'city';
+COMMENT ON COLUMN Vendor.postcode IS 'postcode';
+
+spool off
+
+
+C. TABLE STRUCTURES
+
+SQL> DESC TelProd;
+ Name                                                                     Null?    Type
+ ------------------------------------------------------------------------ -------- -------------------------------------------------
+ PRODUCTTYPE                                                              NOT NULL VARCHAR2(10)
+ TELEPHONE                                                                         NUMBER(15)
+ EMAIL                                                                    NOT NULL VARCHAR2(25)
+
+SQL> DESC ObserProd;
+ Name                                                                     Null?    Type
+ ------------------------------------------------------------------------ -------- -------------------------------------------------
+ PRODUCTTYPE                                                              NOT NULL VARCHAR2(10)
+ OTELEPHONE                                                                        NUMBER(15)
+ OEMAIL                                                                            VARCHAR2(25)
+
+SQL> DESC Customers;
+ Name                                                                     Null?    Type
+ ------------------------------------------------------------------------ -------- -------------------------------------------------
+ CUSTNO                                                                   NOT NULL NUMBER(10)
+ NAME                                                                     NOT NULL VARCHAR2(20)
+ STREET                                                                   NOT NULL VARCHAR2(20)
+ CITY                                                                     NOT NULL VARCHAR2(15)
+ POSTCODE                                                                 NOT NULL NUMBER(5)
+ CREDITLIM                                                                NOT NULL NUMBER(6)
+
+SQL> DESC WorkOrder;
+ Name                                                                     Null?    Type
+ ------------------------------------------------------------------------ -------- -------------------------------------------------
+ WORKORDERNO                                                              NOT NULL VARCHAR2(6)
+ PARTREQ                                                                  NOT NULL VARCHAR2(15)
+ LABOR                                                                    NOT NULL VARCHAR2(15)
+ STARTDATE                                                                NOT NULL DATE
+ ENDDATE                                                                  NOT NULL DATE
+ CUSTORDER                                                                NOT NULL VARCHAR2(10)
+
+SQL> DESC PurchaseOrder;
+ Name                                                                     Null?    Type
+ ------------------------------------------------------------------------ -------- -------------------------------------------------
+ PURCHASENO                                                               NOT NULL NUMBER(6)
+ PURCHASEDATE                                                             NOT NULL DATE
+ DELIVERYLNST                                                             NOT NULL VARCHAR2(25)
+ VENDORNO                                                                 NOT NULL VARCHAR2(10)
+ QUANTITY                                                                 NOT NULL NUMBER(3)
+ PRICE                                                                    NOT NULL NUMBER(6)
+
+SQL> DESC Vendor;
+ Name                                                                     Null?    Type
+ ------------------------------------------------------------------------ -------- -------------------------------------------------
+ VENDORNO                                                                 NOT NULL VARCHAR2(10)
+ VENDORNAME                                                               NOT NULL VARCHAR2(10)
+ STREET                                                                   NOT NULL VARCHAR2(20)
+ CITY                                                                     NOT NULL VARCHAR2(15)
+ POSTCODE                                                                 NOT NULL NUMBER(5)
+
+SQL> DESC Products
+ Name                                                                     Null?    Type
+ ------------------------------------------------------------------------ -------- -------------------------------------------------
+ PRODUCTTYPE                                                              NOT NULL VARCHAR2(10)
+
+SQL> DESC WorkOrderParts;
+ Name                                                                     Null?    Type
+ ------------------------------------------------------------------------ -------- -------------------------------------------------
+ WORKORDERNO                                                              NOT NULL VARCHAR2(6)
+ PARTNO                                                                   NOT NULL VARCHAR2(15)
+
+SQL> DESC PhotoProd;
+ Name                                                                     Null?    Type
+ ------------------------------------------------------------------------ -------- -------------------------------------------------
+ PRODUCTTYPE                                                              NOT NULL VARCHAR2(10)
+ TELEPHONE                                                                NOT NULL NUMBER(15)
+ EMAIL                                                                    NOT NULL VARCHAR2(25)
+
+SQL> DESC MsrmProd;
+ Name                                                                     Null?    Type
+ ------------------------------------------------------------------------ -------- -------------------------------------------------
+ PRODUCTTYPE                                                              NOT NULL VARCHAR2(10)
+ TELEPHONE                                                                NOT NULL NUMBER(15)
+ EMAIL                                                                    NOT NULL VARCHAR2(25)
+
+SQL> DESC CustomerOrder;
+ Name                                                                     Null?    Type
+ ------------------------------------------------------------------------ -------- -------------------------------------------------
+ CUSTORDER                                                                NOT NULL VARCHAR2(10)
+ FNAME                                                                    NOT NULL VARCHAR2(10)
+ LNAME                                                                    NOT NULL VARCHAR2(10)
+ ADDRESS                                                                  NOT NULL VARCHAR2(100)
+ ORDERSPECS                                                               NOT NULL VARCHAR2(100)
+ CUSTNO                                                                   NOT NULL NUMBER(10)
+ PRODUCTTYPE                                                              NOT NULL VARCHAR2(10)
+
+SQL> DESC WorkCenter;
+ Name                                                                     Null?    Type
+ ------------------------------------------------------------------------ -------- -------------------------------------------------
+ WORKCENTNO                                                               NOT NULL VARCHAR2(10)
+ STARTDATE                                                                NOT NULL DATE
+ ENDDATE                                                                  NOT NULL DATE
+
+SQL> DESC Parts;
+ Name                                                                     Null?    Type
+ ------------------------------------------------------------------------ -------- -------------------------------------------------
+ PARTNO                                                                   NOT NULL VARCHAR2(6)
+ PARTSREQ                                                                 NOT NULL VARCHAR2(15)
+ DATEREQUIRED                                                             NOT NULL DATE
+ QUANTITY                                                                 NOT NULL NUMBER(3)
+
+SQL> DESC Employee;
+ Name                                                                     Null?    Type
+ ------------------------------------------------------------------------ -------- -------------------------------------------------
+ EMPLOYEENO                                                               NOT NULL NUMBER(10)
+ FNAME                                                                    NOT NULL VARCHAR2(10)
+ LNAME                                                                    NOT NULL VARCHAR2(10)
+ WORKCENTNO                                                               NOT NULL VARCHAR2(10)
+
+SQL> DESC purchasePartOrder;
+ Name                                                                     Null?    Type
+ ------------------------------------------------------------------------ -------- -------------------------------------------------
+ PURCHASENO                                                               NOT NULL NUMBER(6)
+ PARTNO                                                                   NOT NULL VARCHAR2(15)
+
+
+
+d. table contents
+
+/*    Project Option: <Star Trek> 
+Purpose: Insert data into tables  
+Author: Enrique Flores 004538390 
+*/
+SET PAUSE OFF
+
+SET LINESIZE 80
+
+SET PAGESIZE 55
+
+spool dataInserts.txt
+SET CONSTRAINTS ALL DEFERRED;
+
+INSERT INTO TelProd VALUES ('PH','9091234567','abcd@csusb.edu');
+
+
+INSERT INTO Customers VALUES ('200','John Doe','2800 Observatory Ave','Los Angeles','90027','50000');
+INSERT INTO Customers VALUES ('100','Jane Smith','35899 Canfield Rd','Warner Springs','92086','80000');
+
+INSERT INTO WorkOrder VALUES ('AAA999','Bolts','25','26-DEC-16','06-FEB-17','2345');
+INSERT INTO WorkOrder VALUES ('ARP401','Handles','22','14-FEB-17','14-MAR-17','43346');
+
+INSERT INTO Parts VALUES ('20','Bolts','31-DEC-17','500');
+INSERT INTO Parts VALUES ('50','Handles','31-DEC-17','250');
+
+INSERT INTO Products VALUES ('MP');
+INSERT INTO Products VALUES ('T');
+INSERT INTO Products VALUES ('O');
+INSERT INTO Products VALUES ('PH');
+
+INSERT INTO OBSERPROD VALUES ('O','7608830716','telescope_comp@gmail.com');
+
+
+INSERT INTO CUSTOMERORDER VALUES ('2345','John','Doe','2800 Observatory Ave Los Angeles, CA 90027 USA','We needed the largest lenses available, ASAP','200','T');
+INSERT INTO CUSTOMERORDER VALUES ('43346','Jane','Smith','35899 Canfield Rd Warner Springs, CA 92086 USA','We are interested into purchasing some materials','100','O');
+
+INSERT INTO WORKCENTER VALUES ('13','15-APR-19','28-MAY-19');
+INSERT INTO WORKCENTER VALUES ('45','01-JAN-20','20-FEB-20');
+
+INSERT INTO EMPLOYEE VALUES ('333445555','James','Borg','13');
+INSERT INTO EMPLOYEE VALUES ('123121234','Ahmad','Jabbar','45');
+
+INSERT INTO PURCHASEPARTORDER VALUES ('123456','20');
+INSERT INTO PURCHASEPARTORDER VALUES ('654321','50');
+
+INSERT INTO WORKORDERPARTS VALUES ('AAA999','20');
+INSERT INTO WORKORDERPARTS VALUES ('ARP401','50');
+INSERT INTO PhotoProd VALUES ('PH','88888999','nocool@gmail.com');
+
+
+INSERT INTO MsrmProd VALUES ('MP','88880000','RILY@gmail.com');
+
+
+INSERT INTO Vendor VALUES ('2','X','1415','London','70321');
+INSERT INTO Vendor VALUES ('5','W','345','New York','1024');
+
+INSERT INTO PurchaseOrder VALUES('654321','12-jun-19','drop off on building site','2','10','50');
+INSERT INTO PurchaseOrder VALUES('123456','13-jun-19','drop off in mailbox','5','8','100');
+
+SET CONSTRAINTS ALL IMMEDIATE;
+
+spool off
+
+
+
+
+SQL> @startrekselect
+PRODUCTTYP  TELEPHONE EMAIL                                                     
+---------- ---------- -------------------------                                 
+PH         9091234567 abcd@csusb.edu                                            
+
+
+PRODUCTTYP OTELEPHONE OEMAIL                                                    
+---------- ---------- -------------------------                                 
+O          7608830716 telescope_comp@gmail.com                                  
+
+
+    CUSTNO NAME                 STREET               CITY              POSTCODE 
+---------- -------------------- -------------------- --------------- ---------- 
+ CREDITLIM                                                                      
+----------                                                                      
+       200 John Doe             2800 Observatory Ave Los Angeles          90027 
+     50000                                                                      
+                                                                                
+       100 Jane Smith           35899 Canfield Rd    Warner Springs       92086 
+     80000                                                                      
+                                                                                
+
+
+WORKOR PARTREQ         LABOR           STARTDATE ENDDATE   CUSTORDER            
+------ --------------- --------------- --------- --------- ----------           
+AAA999 Bolts           25              26-DEC-16 06-FEB-17 2345                 
+ARP401 Handles         22              14-FEB-17 14-MAR-17 43346                
+
+
+PURCHASENO PURCHASED DELIVERYLNST              VENDORNO     QUANTITY      PRICE 
+---------- --------- ------------------------- ---------- ---------- ---------- 
+    654321 12-JUN-19 drop off on building site 2                  10         50 
+    123456 13-JUN-19 drop off in mailbox       5                   8        100 
+
+
+VENDORNO   VENDORNAME STREET               CITY              POSTCODE           
+---------- ---------- -------------------- --------------- ----------           
+2          X          1415                 London               70321           
+5          W          345                  New York              1024           
+
+
+PRODUCTTYP                                                                      
+----------                                                                      
+MP                                                                              
+O                                                                               
+PH                                                                              
+T                                                                               
+
+
+WORKOR PARTNO                                                                   
+------ ---------------                                                          
+AAA999 20                                                                       
+ARP401 50                                                                       
+
+
+PRODUCTTYP  TELEPHONE EMAIL                                                     
+---------- ---------- -------------------------                                 
+PH           88888999 nocool@gmail.com                                          
+
+
+PRODUCTTYP  TELEPHONE EMAIL                                                     
+---------- ---------- -------------------------                                 
+MP           88880000 RILY@gmail.com                                            
+
+
+CUSTORDER  FNAME      LNAME                                                     
+---------- ---------- ----------                                                
+ADDRESS                                                                         
+--------------------------------------------------------------------------------
+ORDERSPECS                                                                      
+--------------------------------------------------------------------------------
+    CUSTNO PRODUCTTYP                                                           
+---------- ----------                                                           
+2345       John       Doe                                                       
+2800 Observatory Ave Los Angeles, CA 90027 USA                                  
+We needed the largest lenses available, ASAP                                    
+       200 T                                                                    
+                                                                                
+43346      Jane       Smith                                                     
+35899 Canfield Rd Warner Springs, CA 92086 USA                                  
+We are interested into purchasing some materials                                
+       100 O                                                                    
+                                                                                
+
+
+WORKCENTNO STARTDATE ENDDATE                                                    
+---------- --------- ---------                                                  
+13         15-APR-19 28-MAY-19                                                  
+45         01-JAN-20 20-FEB-20                                                  
+
+
+PARTNO PARTSREQ        DATEREQUI   QUANTITY                                     
+------ --------------- --------- ----------                                     
+20     Bolts           31-DEC-17        500                                     
+50     Handles         31-DEC-17        250                                     
+
+
+EMPLOYEENO FNAME      LNAME      WORKCENTNO                                     
+---------- ---------- ---------- ----------                                     
+ 333445555 James      Borg       13                                             
+ 123121234 Ahmad      Jabbar     45                                             
+
+
+PURCHASENO PARTNO                                                               
+---------- ---------------                                                      
+    123456 20                                                                   
+    654321 50              
+    
+    
+    
+    
+    
+PROJECT Queries
+
+SET PAUSE OFF
+
+SET LINESIZE 80
+
+SET PAGESIZE 55
+
+spool dataQueries.txt
+
+-- 1. Work order schedule reporte
+SELECT wo.workOrderNo "Work Order Number", co.custOrder "Customer Order Number", tp.productType "Type", co.OrderSpecs "Order Description", wo.startDate "Planned Start Date", wo.startDate "Actual Start Date",  wo.endDate "Planned End Date", wo.endDate "Actual End Date", co.productType "Customer Order Type"
+	FROM WorkOrder wo, CustomerOrder co, TelProd tp
+	ORDER BY co.custOrder, wo.workOrderNo;
+
+-- 2. Shop floor control report
+SELECT e.employeeNo "Employee SSN", e.lName "Employee Name", wc.workCentNo "Work Center Location", co.OrderSpecs "Order Description", wo.workOrderNo "Work Order Number", wo.startDate "Planned Start Date", wo.endDate "Planned End Date"
+	FROM Employee e, WorkCenter wc, CustomerOrder co, WorkOrder wo
+	ORDER BY wc.workCentNo, co.custOrder, wo.workOrderNo, e.employeeNo;
+
+-- 3. List of customer orders
+SELECT co.OrderSpecs "Order Description", co.custOrder "Customer Order Type", co.Address "Customer Address", c.CreditLim "Customer Credit Limit"
+	FROM CustomerOrder co, Customers c
+	ORDER BY co.lName, co.custOrder;
+
+-- 4. Parts usage report
+SELECT co.custOrder "Customer Order Type", p.quantity "Quantity Required", co.OrderSpecs "Work Order Description", wo.workOrderNo "Work Order Type", wo.endDate "Actual End Date", wo.startDate "Actual Start Date"
+	FROM CustomerOrder co, Parts p, WorkOrder wo
+	ORDER BY co.custOrder, wo.workOrderNo, p.partNo;
+
+-- 5. Work order schedule analysis report
+SELECT (wo.endDate - wo.startDate) "Planned Time of Work Orders", (wo.endDate - wo.startDate) "Actual Time of Work Orders", wo.workOrderNo "Work Order Type", co.OrderSpecs "Work Order Description", wo.startDate "Actual Start Date", wo.startDate "Planned Start Date", wo.endDate "Actual End Date", wo.endDate "Planned End Date"
+	FROM WorkOrder wo, CustomerOrder co
+	ORDER BY co.custOrder, wo.workOrderNo;
+
+-- 6. Open purchase orders report
+SELECT v.VendorName "Vendor Name", v.VendorNo "Vendor Number", po.purchaseDate "Purchase Date", p.partsReq "Desc Parts Ordered", p.dateRequired "Date Order Received", p.quantity "Quant Order Received"
+	FROM Vendor v, PurchaseOrder po, Parts p
+	ORDER BY po.purchaseNo, p.partNo;
+
+-- 7. List of inventory suppliers sorted by vendor number
+SELECT p.partsReq "Parts Description", v.VendorName, v.street ||','|| v.city ||','|| v.postcode "Vendor Address", po.Price "Vendor Price"
+	FROM Parts p, Vendor v, PurchaseOrder po
+	ORDER BY v.VendorNo, p.partNo;
+
+-- 8. Inventory control report
+SELECT p.partNo "Parts Number", p.partsReq "Parts", p.quantity "Quantity"
+	FROM Parts p
+	ORDER BY p.partNo, p.partsReq, p.quantity;
+
+spool off
+
+
+B results
+
+
+Work O Customer O Type                                                          
+------ ---------- ----------                                                    
+Order Description                                                               
+--------------------------------------------------------------------------------
+Planned S Actual St Planned E Actual En Customer O                              
+--------- --------- --------- --------- ----------                              
+AAA999 2345       PH                                                            
+We needed the largest lenses available, ASAP                                    
+26-DEC-16 26-DEC-16 06-FEB-17 06-FEB-17 T                                       
+                                                                                
+ARP401 2345       PH                                                            
+We needed the largest lenses available, ASAP                                    
+14-FEB-17 14-FEB-17 14-MAR-17 14-MAR-17 T                                       
+                                                                                
+AAA999 43346      PH                                                            
+We are interested into purchasing some materials                                
+26-DEC-16 26-DEC-16 06-FEB-17 06-FEB-17 O                                       
+                                                                                
+ARP401 43346      PH                                                            
+We are interested into purchasing some materials                                
+14-FEB-17 14-FEB-17 14-MAR-17 14-MAR-17 O                                       
+                                                                                
+
+
+Employee SSN Employee N Work Cente                                              
+------------ ---------- ----------                                              
+Order Description                                                               
+--------------------------------------------------------------------------------
+Work O Planned S Planned E                                                      
+------ --------- ---------                                                      
+   123121234 Jabbar     13                                                      
+We needed the largest lenses available, ASAP                                    
+AAA999 26-DEC-16 06-FEB-17                                                      
+                                                                                
+   333445555 Borg       13                                                      
+We needed the largest lenses available, ASAP                                    
+AAA999 26-DEC-16 06-FEB-17                                                      
+                                                                                
+   123121234 Jabbar     13                                                      
+We needed the largest lenses available, ASAP                                    
+ARP401 14-FEB-17 14-MAR-17                                                      
+                                                                                
+   333445555 Borg       13                                                      
+We needed the largest lenses available, ASAP                                    
+ARP401 14-FEB-17 14-MAR-17                                                      
+                                                                                
+   123121234 Jabbar     13                                                      
+We are interested into purchasing some materials                                
+AAA999 26-DEC-16 06-FEB-17                                                      
+                                                                                
+   333445555 Borg       13                                                      
+We are interested into purchasing some materials                                
+AAA999 26-DEC-16 06-FEB-17                                                      
+                                                                                
+   123121234 Jabbar     13                                                      
+We are interested into purchasing some materials                                
+ARP401 14-FEB-17 14-MAR-17                                                      
+                                                                                
+   333445555 Borg       13                                                      
+We are interested into purchasing some materials                                
+ARP401 14-FEB-17 14-MAR-17                                                      
+                                                                                
+   123121234 Jabbar     45                                                      
+We needed the largest lenses available, ASAP                                    
+AAA999 26-DEC-16 06-FEB-17                                                      
+                                                                                
+   333445555 Borg       45                                                      
+We needed the largest lenses available, ASAP                                    
+AAA999 26-DEC-16 06-FEB-17                                                      
+                                                                                
+   123121234 Jabbar     45                                                      
+We needed the largest lenses available, ASAP                                    
+ARP401 14-FEB-17 14-MAR-17                                                      
+                                                                                
+   333445555 Borg       45                                                      
+We needed the largest lenses available, ASAP                                    
+ARP401 14-FEB-17 14-MAR-17                                                      
+                                                                                
+
+Employee SSN Employee N Work Cente                                              
+------------ ---------- ----------                                              
+Order Description                                                               
+--------------------------------------------------------------------------------
+Work O Planned S Planned E                                                      
+------ --------- ---------                                                      
+   123121234 Jabbar     45                                                      
+We are interested into purchasing some materials                                
+AAA999 26-DEC-16 06-FEB-17                                                      
+                                                                                
+   333445555 Borg       45                                                      
+We are interested into purchasing some materials                                
+AAA999 26-DEC-16 06-FEB-17                                                      
+                                                                                
+   123121234 Jabbar     45                                                      
+We are interested into purchasing some materials                                
+ARP401 14-FEB-17 14-MAR-17                                                      
+                                                                                
+   333445555 Borg       45                                                      
+We are interested into purchasing some materials                                
+ARP401 14-FEB-17 14-MAR-17                                                      
+                                                                                
+
+16 rows selected.
+
+
+Order Description                                                               
+--------------------------------------------------------------------------------
+Customer O                                                                      
+----------                                                                      
+Customer Address                                                                
+--------------------------------------------------------------------------------
+Customer Credit Limit                                                           
+---------------------                                                           
+We needed the largest lenses available, ASAP                                    
+2345                                                                            
+2800 Observatory Ave Los Angeles, CA 90027 USA                                  
+                80000                                                           
+                                                                                
+We needed the largest lenses available, ASAP                                    
+2345                                                                            
+2800 Observatory Ave Los Angeles, CA 90027 USA                                  
+                50000                                                           
+                                                                                
+We are interested into purchasing some materials                                
+43346                                                                           
+35899 Canfield Rd Warner Springs, CA 92086 USA                                  
+                80000                                                           
+                                                                                
+We are interested into purchasing some materials                                
+43346                                                                           
+35899 Canfield Rd Warner Springs, CA 92086 USA                                  
+                50000                                                           
+                                                                                
+
+
+Customer O Quantity Required                                                    
+---------- -----------------                                                    
+Work Order Description                                                          
+--------------------------------------------------------------------------------
+Work O Actual En Actual St                                                      
+------ --------- ---------                                                      
+2345                     500                                                    
+We needed the largest lenses available, ASAP                                    
+AAA999 06-FEB-17 26-DEC-16                                                      
+                                                                                
+2345                     250                                                    
+We needed the largest lenses available, ASAP                                    
+AAA999 06-FEB-17 26-DEC-16                                                      
+                                                                                
+2345                     500                                                    
+We needed the largest lenses available, ASAP                                    
+ARP401 14-MAR-17 14-FEB-17                                                      
+                                                                                
+2345                     250                                                    
+We needed the largest lenses available, ASAP                                    
+ARP401 14-MAR-17 14-FEB-17                                                      
+                                                                                
+43346                    500                                                    
+We are interested into purchasing some materials                                
+AAA999 06-FEB-17 26-DEC-16                                                      
+                                                                                
+43346                    250                                                    
+We are interested into purchasing some materials                                
+AAA999 06-FEB-17 26-DEC-16                                                      
+                                                                                
+43346                    500                                                    
+We are interested into purchasing some materials                                
+ARP401 14-MAR-17 14-FEB-17                                                      
+                                                                                
+43346                    250                                                    
+We are interested into purchasing some materials                                
+ARP401 14-MAR-17 14-FEB-17                                                      
+                                                                                
+
+8 rows selected.
+
+
+Planned Time of Work Orders Actual Time of Work Orders Work O                   
+--------------------------- -------------------------- ------                   
+Work Order Description                                                          
+--------------------------------------------------------------------------------
+Actual St Planned S Actual En Planned E                                         
+--------- --------- --------- ---------                                         
+                         42                         42 AAA999                   
+We needed the largest lenses available, ASAP                                    
+26-DEC-16 26-DEC-16 06-FEB-17 06-FEB-17                                         
+                                                                                
+                         28                         28 ARP401                   
+We needed the largest lenses available, ASAP                                    
+14-FEB-17 14-FEB-17 14-MAR-17 14-MAR-17                                         
+                                                                                
+                         42                         42 AAA999                   
+We are interested into purchasing some materials                                
+26-DEC-16 26-DEC-16 06-FEB-17 06-FEB-17                                         
+                                                                                
+                         28                         28 ARP401                   
+We are interested into purchasing some materials                                
+14-FEB-17 14-FEB-17 14-MAR-17 14-MAR-17                                         
+                                                                                
+
+
+Vendor Nam Vendor Num Purchase  Desc Parts Orde Date Orde Quant Order Received  
+---------- ---------- --------- --------------- --------- --------------------  
+W          5          13-JUN-19 Bolts           31-DEC-17                  500  
+X          2          13-JUN-19 Bolts           31-DEC-17                  500  
+W          5          13-JUN-19 Handles         31-DEC-17                  250  
+X          2          13-JUN-19 Handles         31-DEC-17                  250  
+W          5          12-JUN-19 Bolts           31-DEC-17                  500  
+X          2          12-JUN-19 Bolts           31-DEC-17                  500  
+X          2          12-JUN-19 Handles         31-DEC-17                  250  
+W          5          12-JUN-19 Handles         31-DEC-17                  250  
+
+8 rows selected.
+
+
+Parts Descripti VENDORNAME                                                      
+--------------- ----------                                                      
+Vendor Address                                                                  
+-----------------------------------------------------------------------------   
+Vendor Price                                                                    
+------------                                                                    
+Bolts           X                                                               
+1415,London,70321                                                               
+          50                                                                    
+                                                                                
+Bolts           X                                                               
+1415,London,70321                                                               
+         100                                                                    
+                                                                                
+Handles         X                                                               
+1415,London,70321                                                               
+          50                                                                    
+                                                                                
+Handles         X                                                               
+1415,London,70321                                                               
+         100                                                                    
+                                                                                
+Bolts           W                                                               
+345,New York,1024                                                               
+         100                                                                    
+                                                                                
+Bolts           W                                                               
+345,New York,1024                                                               
+          50                                                                    
+                                                                                
+Handles         W                                                               
+345,New York,1024                                                               
+         100                                                                    
+                                                                                
+Handles         W                                                               
+345,New York,1024                                                               
+          50                                                                    
+                                                                                
+
+8 rows selected.
+
+
+Parts  Parts             Quantity                                               
+------ --------------- ----------                                               
+20     Bolts                  500                                               
+50     Handles                250                                               
+
+
+
+                                                         
+

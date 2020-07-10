@@ -1,0 +1,108 @@
+
+PRODUCTTYP  TELEPHONE EMAIL                                                     
+---------- ---------- -------------------------                                 
+PH         9091234567 abcd@csusb.edu                                            
+
+
+PRODUCTTYP OTELEPHONE OEMAIL                                                    
+---------- ---------- -------------------------                                 
+O          7608830716 telescope_comp@gmail.com                                  
+
+
+    CUSTNO NAME                 STREET               CITY              POSTCODE 
+---------- -------------------- -------------------- --------------- ---------- 
+ CREDITLIM                                                                      
+----------                                                                      
+       200 John Doe             2800 Observatory Ave Los Angeles          90027 
+     50000                                                                      
+                                                                                
+       100 Jane Smith           35899 Canfield Rd    Warner Springs       92086 
+     80000                                                                      
+                                                                                
+
+
+WORKOR PARTREQ         LABOR           STARTDATE ENDDATE   CUSTORDER            
+------ --------------- --------------- --------- --------- ----------           
+AAA999 Bolts           25              26-DEC-16 06-FEB-17 2345                 
+ARP401 Handles         22              14-FEB-17 14-MAR-17 43346                
+
+
+PURCHASENO PURCHASED DELIVERYLNST              VENDORNO     QUANTITY      PRICE 
+---------- --------- ------------------------- ---------- ---------- ---------- 
+    654321 12-JUN-19 drop off on building site 2                  10         50 
+    123456 13-JUN-19 drop off in mailbox       5                   8        100 
+
+
+VENDORNO   VENDORNAME STREET               CITY              POSTCODE           
+---------- ---------- -------------------- --------------- ----------           
+2          X          1415                 London               70321           
+5          W          345                  New York              1024           
+
+
+PRODUCTTYP                                                                      
+----------                                                                      
+MP                                                                              
+O                                                                               
+PH                                                                              
+T                                                                               
+
+
+WORKOR PARTNO                                                                   
+------ ---------------                                                          
+AAA999 20                                                                       
+ARP401 50                                                                       
+
+
+PRODUCTTYP  TELEPHONE EMAIL                                                     
+---------- ---------- -------------------------                                 
+PH           88888999 nocool@gmail.com                                          
+
+
+PRODUCTTYP  TELEPHONE EMAIL                                                     
+---------- ---------- -------------------------                                 
+MP           88880000 RILY@gmail.com                                            
+
+
+CUSTORDER  FNAME      LNAME                                                     
+---------- ---------- ----------                                                
+ADDRESS                                                                         
+--------------------------------------------------------------------------------
+ORDERSPECS                                                                      
+--------------------------------------------------------------------------------
+    CUSTNO PRODUCTTYP                                                           
+---------- ----------                                                           
+2345       John       Doe                                                       
+2800 Observatory Ave Los Angeles, CA 90027 USA                                  
+We needed the largest lenses available, ASAP                                    
+       200 T                                                                    
+                                                                                
+43346      Jane       Smith                                                     
+35899 Canfield Rd Warner Springs, CA 92086 USA                                  
+We are interested into purchasing some materials                                
+       100 O                                                                    
+                                                                                
+
+
+WORKCENTNO STARTDATE ENDDATE                                                    
+---------- --------- ---------                                                  
+13         15-APR-19 28-MAY-19                                                  
+45         01-JAN-20 20-FEB-20                                                  
+
+
+PARTNO PARTSREQ        DATEREQUI   QUANTITY                                     
+------ --------------- --------- ----------                                     
+20     Bolts           31-DEC-17        500                                     
+50     Handles         31-DEC-17        250                                     
+
+
+EMPLOYEENO FNAME      LNAME      WORKCENTNO                                     
+---------- ---------- ---------- ----------                                     
+ 333445555 James      Borg       13                                             
+ 123121234 Ahmad      Jabbar     45                                             
+
+
+PURCHASENO PARTNO                                                               
+---------- ---------------                                                      
+    123456 20                                                                   
+    654321 50                                                                   
+

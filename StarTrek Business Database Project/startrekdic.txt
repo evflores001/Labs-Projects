@@ -1,0 +1,77 @@
+
+TABLE_NAME           TABLE_TYPE  COMMENTS                                                                                           
+-------------------- ----------- ----------------------------------------                                                           
+WORKORDERPARTS       TABLE       Parts Required For Work Orders                                                                     
+WORKORDER            TABLE       Work Orders of Startrek                                                                            
+WORKCENTER           TABLE       Work Center Details                                                                                
+VENDOR               TABLE       Vendor Info                                                                                        
+PURCHASEPARTORDER    TABLE       Parts Required For Purchase                                                                        
+PURCHASEORDER        TABLE       Purchase Order Info                                                                                
+PRODUCTS             TABLE       Products of Startrek                                                                               
+PHOTOPROD            TABLE       Photography products of Star Trek                                                                  
+PARTS                TABLE       Parts of Startrek                                                                                  
+OBSERPROD            TABLE       Observation Products of Star Trek                                                                  
+EMPLOYEE             TABLE       Employee Details                                                                                   
+CUSTOMERS            TABLE       Customers of Startrek                                                                              
+CUSTOMERORDER        TABLE       Unique Customer Order report                                                                       
+
+13 rows selected.
+
+
+TABLE_NAME           COLUMN_NAME          COMMENTS                                                                                  
+-------------------- -------------------- ----------------------------------------                                                  
+CUSTOMERORDER        CUSTORDER            Customer"s order                                                                          
+CUSTOMERORDER        FNAME                First Name                                                                                
+CUSTOMERORDER        LNAME                Last Name                                                                                 
+CUSTOMERORDER        ADDRESS              Customers Address                                                                         
+CUSTOMERORDER        ORDERSPECS           Order Specifications                                                                      
+CUSTOMERORDER        CUSTNO               Customer Number                                                                           
+CUSTOMERORDER        PRODUCTTYPE          Type of Order                                                                             
+CUSTOMERS            CUSTNO               Unique Customer Number                                                                    
+CUSTOMERS            NAME                 Name                                                                                      
+CUSTOMERS            STREET               Street Address                                                                            
+CUSTOMERS            CITY                 City                                                                                      
+CUSTOMERS            POSTCODE             Postcode                                                                                  
+CUSTOMERS            CREDITLIM            Customer Credit Limit                                                                     
+EMPLOYEE             EMPLOYEENO           Unique Employee Number                                                                    
+EMPLOYEE             FNAME                First Name                                                                                
+EMPLOYEE             LNAME                Last Name                                                                                 
+EMPLOYEE             WORKCENTNO           Work Center Employee Works At                                                             
+OBSERPROD            PRODUCTTYPE          Observation product type                                                                  
+OBSERPROD            OTELEPHONE           Telephone Number                                                                          
+OBSERPROD            OEMAIL               Email address                                                                             
+PARTS                PARTNO               Unique Part Number                                                                        
+PARTS                PARTSREQ             Parts Required                                                                            
+PARTS                DATEREQUIRED         Date Required                                                                             
+PARTS                QUANTITY        Quantity                                                                                  
+PHOTOPROD            PRODUCTTYPE          PhotoProd product type                                                                    
+PHOTOPROD            TELEPHONE            Telephone Number                                                                          
+PHOTOPROD            EMAIL                Email address                                                                             
+PRODUCTS             PRODUCTTYPE          Unique Product Line Number                                                                
+PURCHASEORDER        PURCHASENO           Unique Purchase Numbe                                                                     
+PURCHASEORDER        PURCHASEDATE         Purchase Date of Order                                                                    
+PURCHASEORDER        DELIVERYLNST         Delivery Instruction                                                                      
+PURCHASEORDER        VENDORNO             Vendor Number                                                                             
+PURCHASEORDER        QUANTITY             Quantity of Order                                                                         
+PURCHASEORDER        PRICE                Total Price of Order                                                                      
+PURCHASEPARTORDER    PURCHASENO           Unique Purchase Number                                                                    
+PURCHASEPARTORDER    PARTNO               Unique Part Number                                                                        
+VENDOR               VENDORNO             Unique Vendor Number                                                                      
+VENDOR               VENDORNAME           Vendor name                                                                               
+VENDOR               STREET               Street address                                                                            
+VENDOR               CITY                 city                                                                                      
+VENDOR               POSTCODE             postcode                                                                                  
+WORKCENTER           WORKCENTNO           Unique Work Center Number                                                                 
+WORKCENTER           STARTDATE            Order Start Date                                                                          
+WORKCENTER           ENDDATE              Order End Date                                                                            
+WORKORDER            WORKORDERNO          Unique Work Order Number                                                                  
+WORKORDER            PARTREQ              Part Required                                                                             
+WORKORDER            LABOR                Labor Required                                                                            
+WORKORDER            STARTDATE            Start Date                                                                                
+WORKORDER            ENDDATE              End Date                                                                                  
+WORKORDER            CUSTORDER            Unique Customer Order                                                                     
+WORKORDERPARTS       WORKORDERNO          Unique Work Order Number                                                                  
+WORKORDERPARTS       PARTNO               Unique Part Number                                                                        
+
+52 rows selected.
+

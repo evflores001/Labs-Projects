@@ -1,0 +1,58 @@
+/*    Project Option: <Star Trek> 
+Purpose: Alter tables script files; adds foreign keys  
+Author: Enrique Flores 004538390 
+*/
+SET PAUSE OFF
+
+SET LINESIZE 80
+
+SET PAGESIZE 55
+
+spool alterTables.txt
+ALTER TABLE CustomerOrder
+	ADD CONSTRAINTS Customer_PT_FK FOREIGN KEY (productType) REFERENCES Products(productType) 
+	ON DELETE SET NULL DEFERRABLE INITIALLY IMMEDIATE;
+
+	
+ALTER TABLE CustomerOrder
+        ADD CONSTRAINTS Customer_No_FK FOREIGN KEY (custNo) REFERENCES Customers(custNo) 
+        ON DELETE SET NULL DEFERRABLE INITIALLY IMMEDIATE;
+
+
+ALTER TABLE ObserProd
+        ADD CONSTRAINTS Obser_Type_FK FOREIGN KEY (productType) REFERENCES Products(productType) 
+        ON DELETE SET NULL DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE TelProd
+	ADD CONSTRAINTS TelProd_FK FOREIGN KEY (productType) REFERENCES Products(productType)
+	ON DELETE SET NULL DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE Employee
+        ADD CONSTRAINTS Employee_WC_FK FOREIGN KEY (workCentNo) REFERENCES WorkCenter(workCentNo)                        
+        ON DELETE SET NULL DEFERRABLE INITIALLY IMMEDIATE;
+
+
+ALTER TABLE PurchasePartOrder 
+        ADD CONSTRAINTS PPO_PN_FK FOREIGN KEY (purchaseNo) REFERENCES PurchaseOrder(PurchaseNo)                        
+        ON DELETE SET NULL DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE PurchasePartOrder
+        ADD CONSTRAINTS PPO_Parts_FK FOREIGN KEY (partNo) REFERENCES Parts(partNo)
+        ON DELETE SET NULL DEFERRABLE INITIALLY IMMEDIATE;
+
+
+ALTER TABLE WorkOrderParts
+        ADD CONSTRAINTS WOP_WO_FK FOREIGN KEY (WorkOrderNo) REFERENCES WorkOrder(workOrderNo)                        
+        ON DELETE SET NULL DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE WorkOrderParts
+        ADD CONSTRAINTS WOP_Parts_FK FOREIGN KEY (partNo) REFERENCES Parts(partNo)                        
+        ON DELETE SET NULL DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE WorkOrder
+	ADD CONSTRAINTS WorkOrder_CustomerOrder_FK FOREIGN KEY (custOrder)
+	REFERENCES CustomerOrder(custOrder)
+	ON DELETE SET NULL DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE PurchaseOrder
+        ADD CONSTRAINTS PurchaseOrder_VN_FK FOREIGN KEY (vendorNo) REFERENCES Vendor(vendorNo)
+        ON DELETE SET NULL DEFERRABLE INITIALLY IMMEDIATE;
+spool off

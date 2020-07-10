@@ -1,0 +1,103 @@
+ Name                                                                     Null?    Type
+ ------------------------------------------------------------------------ -------- -------------------------------------------------
+ PRODUCTTYPE                                                              NOT NULL VARCHAR2(10)
+ TELEPHONE                                                                         NUMBER(15)
+ EMAIL                                                                    NOT NULL VARCHAR2(25)
+
+ Name                                                                     Null?    Type
+ ------------------------------------------------------------------------ -------- -------------------------------------------------
+ PRODUCTTYPE                                                              NOT NULL VARCHAR2(10)
+ OTELEPHONE                                                                        NUMBER(15)
+ OEMAIL                                                                            VARCHAR2(25)
+
+ Name                                                                     Null?    Type
+ ------------------------------------------------------------------------ -------- -------------------------------------------------
+ CUSTNO                                                                   NOT NULL NUMBER(10)
+ NAME                                                                     NOT NULL VARCHAR2(20)
+ STREET                                                                   NOT NULL VARCHAR2(20)
+ CITY                                                                     NOT NULL VARCHAR2(15)
+ POSTCODE                                                                 NOT NULL NUMBER(5)
+ CREDITLIM                                                                NOT NULL NUMBER(6)
+
+ Name                                                                     Null?    Type
+ ------------------------------------------------------------------------ -------- -------------------------------------------------
+ WORKORDERNO                                                              NOT NULL VARCHAR2(6)
+ PARTREQ                                                                  NOT NULL VARCHAR2(15)
+ LABOR                                                                    NOT NULL VARCHAR2(15)
+ STARTDATE                                                                NOT NULL DATE
+ ENDDATE                                                                  NOT NULL DATE
+ CUSTORDER                                                                NOT NULL VARCHAR2(10)
+
+ Name                                                                     Null?    Type
+ ------------------------------------------------------------------------ -------- -------------------------------------------------
+ PURCHASENO                                                               NOT NULL NUMBER(6)
+ PURCHASEDATE                                                             NOT NULL DATE
+ DELIVERYLNST                                                             NOT NULL VARCHAR2(25)
+ VENDORNO                                                                 NOT NULL VARCHAR2(10)
+ QUANTITY                                                                 NOT NULL NUMBER(3)
+ PRICE                                                                    NOT NULL NUMBER(6)
+
+ Name                                                                     Null?    Type
+ ------------------------------------------------------------------------ -------- -------------------------------------------------
+ VENDORNO                                                                 NOT NULL VARCHAR2(10)
+ VENDORNAME                                                               NOT NULL VARCHAR2(10)
+ STREET                                                                   NOT NULL VARCHAR2(20)
+ CITY                                                                     NOT NULL VARCHAR2(15)
+ POSTCODE                                                                 NOT NULL NUMBER(5)
+
+ Name                                                                     Null?    Type
+ ------------------------------------------------------------------------ -------- -------------------------------------------------
+ PRODUCTTYPE                                                              NOT NULL VARCHAR2(10)
+
+ Name                                                                     Null?    Type
+ ------------------------------------------------------------------------ -------- -------------------------------------------------
+ WORKORDERNO                                                              NOT NULL VARCHAR2(6)
+ PARTNO                                                                   NOT NULL VARCHAR2(15)
+
+ Name                                                                     Null?    Type
+ ------------------------------------------------------------------------ -------- -------------------------------------------------
+ PRODUCTTYPE                                                              NOT NULL VARCHAR2(10)
+ TELEPHONE                                                                NOT NULL NUMBER(15)
+ EMAIL                                                                    NOT NULL VARCHAR2(25)
+
+ Name                                                                     Null?    Type
+ ------------------------------------------------------------------------ -------- -------------------------------------------------
+ PRODUCTTYPE                                                              NOT NULL VARCHAR2(10)
+ TELEPHONE                                                                NOT NULL NUMBER(15)
+ EMAIL                                                                    NOT NULL VARCHAR2(25)
+
+ Name                                                                     Null?    Type
+ ------------------------------------------------------------------------ -------- -------------------------------------------------
+ CUSTORDER                                                                NOT NULL VARCHAR2(10)
+ FNAME                                                                    NOT NULL VARCHAR2(10)
+ LNAME                                                                    NOT NULL VARCHAR2(10)
+ ADDRESS                                                                  NOT NULL VARCHAR2(100)
+ ORDERSPECS                                                               NOT NULL VARCHAR2(100)
+ CUSTNO                                                                   NOT NULL NUMBER(10)
+ PRODUCTTYPE                                                              NOT NULL VARCHAR2(10)
+
+ Name                                                                     Null?    Type
+ ------------------------------------------------------------------------ -------- -------------------------------------------------
+ WORKCENTNO                                                               NOT NULL VARCHAR2(10)
+ STARTDATE                                                                NOT NULL DATE
+ ENDDATE                                                                  NOT NULL DATE
+
+ Name                                                                     Null?    Type
+ ------------------------------------------------------------------------ -------- -------------------------------------------------
+ PARTNO                                                                   NOT NULL VARCHAR2(6)
+ PARTSREQ                                                                 NOT NULL VARCHAR2(15)
+ DATEREQUIRED                                                             NOT NULL DATE
+ QUANTITY                                                                 NOT NULL NUMBER(3)
+
+ Name                                                                     Null?    Type
+ ------------------------------------------------------------------------ -------- -------------------------------------------------
+ EMPLOYEENO                                                               NOT NULL NUMBER(10)
+ FNAME                                                                    NOT NULL VARCHAR2(10)
+ LNAME                                                                    NOT NULL VARCHAR2(10)
+ WORKCENTNO                                                               NOT NULL VARCHAR2(10)
+
+ Name                                                                     Null?    Type
+ ------------------------------------------------------------------------ -------- -------------------------------------------------
+ PURCHASENO                                                               NOT NULL NUMBER(6)
+ PARTNO                                                                   NOT NULL VARCHAR2(15)
+

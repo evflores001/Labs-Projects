@@ -1,0 +1,263 @@
+
+Work O Customer O Type                                                          
+------ ---------- ----------                                                    
+Order Description                                                               
+--------------------------------------------------------------------------------
+Planned S Actual St Planned E Actual En Customer O                              
+--------- --------- --------- --------- ----------                              
+AAA999 2345       PH                                                            
+We needed the largest lenses available, ASAP                                    
+26-DEC-16 26-DEC-16 06-FEB-17 06-FEB-17 T                                       
+                                                                                
+ARP401 2345       PH                                                            
+We needed the largest lenses available, ASAP                                    
+14-FEB-17 14-FEB-17 14-MAR-17 14-MAR-17 T                                       
+                                                                                
+AAA999 43346      PH                                                            
+We are interested into purchasing some materials                                
+26-DEC-16 26-DEC-16 06-FEB-17 06-FEB-17 O                                       
+                                                                                
+ARP401 43346      PH                                                            
+We are interested into purchasing some materials                                
+14-FEB-17 14-FEB-17 14-MAR-17 14-MAR-17 O                                       
+                                                                                
+
+
+Employee SSN Employee N Work Cente                                              
+------------ ---------- ----------                                              
+Order Description                                                               
+--------------------------------------------------------------------------------
+Work O Planned S Planned E                                                      
+------ --------- ---------                                                      
+   123121234 Jabbar     13                                                      
+We needed the largest lenses available, ASAP                                    
+AAA999 26-DEC-16 06-FEB-17                                                      
+                                                                                
+   333445555 Borg       13                                                      
+We needed the largest lenses available, ASAP                                    
+AAA999 26-DEC-16 06-FEB-17                                                      
+                                                                                
+   123121234 Jabbar     13                                                      
+We needed the largest lenses available, ASAP                                    
+ARP401 14-FEB-17 14-MAR-17                                                      
+                                                                                
+   333445555 Borg       13                                                      
+We needed the largest lenses available, ASAP                                    
+ARP401 14-FEB-17 14-MAR-17                                                      
+                                                                                
+   123121234 Jabbar     13                                                      
+We are interested into purchasing some materials                                
+AAA999 26-DEC-16 06-FEB-17                                                      
+                                                                                
+   333445555 Borg       13                                                      
+We are interested into purchasing some materials                                
+AAA999 26-DEC-16 06-FEB-17                                                      
+                                                                                
+   123121234 Jabbar     13                                                      
+We are interested into purchasing some materials                                
+ARP401 14-FEB-17 14-MAR-17                                                      
+                                                                                
+   333445555 Borg       13                                                      
+We are interested into purchasing some materials                                
+ARP401 14-FEB-17 14-MAR-17                                                      
+                                                                                
+   123121234 Jabbar     45                                                      
+We needed the largest lenses available, ASAP                                    
+AAA999 26-DEC-16 06-FEB-17                                                      
+                                                                                
+   333445555 Borg       45                                                      
+We needed the largest lenses available, ASAP                                    
+AAA999 26-DEC-16 06-FEB-17                                                      
+                                                                                
+   123121234 Jabbar     45                                                      
+We needed the largest lenses available, ASAP                                    
+ARP401 14-FEB-17 14-MAR-17                                                      
+                                                                                
+   333445555 Borg       45                                                      
+We needed the largest lenses available, ASAP                                    
+ARP401 14-FEB-17 14-MAR-17                                                      
+                                                                                
+
+Employee SSN Employee N Work Cente                                              
+------------ ---------- ----------                                              
+Order Description                                                               
+--------------------------------------------------------------------------------
+Work O Planned S Planned E                                                      
+------ --------- ---------                                                      
+   123121234 Jabbar     45                                                      
+We are interested into purchasing some materials                                
+AAA999 26-DEC-16 06-FEB-17                                                      
+                                                                                
+   333445555 Borg       45                                                      
+We are interested into purchasing some materials                                
+AAA999 26-DEC-16 06-FEB-17                                                      
+                                                                                
+   123121234 Jabbar     45                                                      
+We are interested into purchasing some materials                                
+ARP401 14-FEB-17 14-MAR-17                                                      
+                                                                                
+   333445555 Borg       45                                                      
+We are interested into purchasing some materials                                
+ARP401 14-FEB-17 14-MAR-17                                                      
+                                                                                
+
+16 rows selected.
+
+
+Order Description                                                               
+--------------------------------------------------------------------------------
+Customer O                                                                      
+----------                                                                      
+Customer Address                                                                
+--------------------------------------------------------------------------------
+Customer Credit Limit                                                           
+---------------------                                                           
+We needed the largest lenses available, ASAP                                    
+2345                                                                            
+2800 Observatory Ave Los Angeles, CA 90027 USA                                  
+                80000                                                           
+                                                                                
+We needed the largest lenses available, ASAP                                    
+2345                                                                            
+2800 Observatory Ave Los Angeles, CA 90027 USA                                  
+                50000                                                           
+                                                                                
+We are interested into purchasing some materials                                
+43346                                                                           
+35899 Canfield Rd Warner Springs, CA 92086 USA                                  
+                80000                                                           
+                                                                                
+We are interested into purchasing some materials                                
+43346                                                                           
+35899 Canfield Rd Warner Springs, CA 92086 USA                                  
+                50000                                                           
+                                                                                
+
+
+Customer O Quantity Required                                                    
+---------- -----------------                                                    
+Work Order Description                                                          
+--------------------------------------------------------------------------------
+Work O Actual En Actual St                                                      
+------ --------- ---------                                                      
+2345                     500                                                    
+We needed the largest lenses available, ASAP                                    
+AAA999 06-FEB-17 26-DEC-16                                                      
+                                                                                
+2345                     250                                                    
+We needed the largest lenses available, ASAP                                    
+AAA999 06-FEB-17 26-DEC-16                                                      
+                                                                                
+2345                     500                                                    
+We needed the largest lenses available, ASAP                                    
+ARP401 14-MAR-17 14-FEB-17                                                      
+                                                                                
+2345                     250                                                    
+We needed the largest lenses available, ASAP                                    
+ARP401 14-MAR-17 14-FEB-17                                                      
+                                                                                
+43346                    500                                                    
+We are interested into purchasing some materials                                
+AAA999 06-FEB-17 26-DEC-16                                                      
+                                                                                
+43346                    250                                                    
+We are interested into purchasing some materials                                
+AAA999 06-FEB-17 26-DEC-16                                                      
+                                                                                
+43346                    500                                                    
+We are interested into purchasing some materials                                
+ARP401 14-MAR-17 14-FEB-17                                                      
+                                                                                
+43346                    250                                                    
+We are interested into purchasing some materials                                
+ARP401 14-MAR-17 14-FEB-17                                                      
+                                                                                
+
+8 rows selected.
+
+
+Planned Time of Work Orders Actual Time of Work Orders Work O                   
+--------------------------- -------------------------- ------                   
+Work Order Description                                                          
+--------------------------------------------------------------------------------
+Actual St Planned S Actual En Planned E                                         
+--------- --------- --------- ---------                                         
+                         42                         42 AAA999                   
+We needed the largest lenses available, ASAP                                    
+26-DEC-16 26-DEC-16 06-FEB-17 06-FEB-17                                         
+                                                                                
+                         28                         28 ARP401                   
+We needed the largest lenses available, ASAP                                    
+14-FEB-17 14-FEB-17 14-MAR-17 14-MAR-17                                         
+                                                                                
+                         42                         42 AAA999                   
+We are interested into purchasing some materials                                
+26-DEC-16 26-DEC-16 06-FEB-17 06-FEB-17                                         
+                                                                                
+                         28                         28 ARP401                   
+We are interested into purchasing some materials                                
+14-FEB-17 14-FEB-17 14-MAR-17 14-MAR-17                                         
+                                                                                
+
+
+Vendor Nam Vendor Num Purchase  Desc Parts Orde Date Orde Quant Order Received  
+---------- ---------- --------- --------------- --------- --------------------  
+W          5          13-JUN-19 Bolts           31-DEC-17                  500  
+X          2          13-JUN-19 Bolts           31-DEC-17                  500  
+W          5          13-JUN-19 Handles         31-DEC-17                  250  
+X          2          13-JUN-19 Handles         31-DEC-17                  250  
+W          5          12-JUN-19 Bolts           31-DEC-17                  500  
+X          2          12-JUN-19 Bolts           31-DEC-17                  500  
+X          2          12-JUN-19 Handles         31-DEC-17                  250  
+W          5          12-JUN-19 Handles         31-DEC-17                  250  
+
+8 rows selected.
+
+
+Parts Descripti VENDORNAME                                                      
+--------------- ----------                                                      
+Vendor Address                                                                  
+-----------------------------------------------------------------------------   
+Vendor Price                                                                    
+------------                                                                    
+Bolts           X                                                               
+1415,London,70321                                                               
+          50                                                                    
+                                                                                
+Bolts           X                                                               
+1415,London,70321                                                               
+         100                                                                    
+                                                                                
+Handles         X                                                               
+1415,London,70321                                                               
+          50                                                                    
+                                                                                
+Handles         X                                                               
+1415,London,70321                                                               
+         100                                                                    
+                                                                                
+Bolts           W                                                               
+345,New York,1024                                                               
+         100                                                                    
+                                                                                
+Bolts           W                                                               
+345,New York,1024                                                               
+          50                                                                    
+                                                                                
+Handles         W                                                               
+345,New York,1024                                                               
+         100                                                                    
+                                                                                
+Handles         W                                                               
+345,New York,1024                                                               
+          50                                                                    
+                                                                                
+
+8 rows selected.
+
+
+Parts  Parts             Quantity                                               
+------ --------------- ----------                                               
+20     Bolts                  500                                               
+50     Handles                250                                               
+
