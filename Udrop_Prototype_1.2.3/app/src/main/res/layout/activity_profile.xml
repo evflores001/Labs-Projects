@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_profile"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/accent"
+    tools:context=".ProfileActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/profile_menu_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/profile_menu_recvw"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/primary_dark"
+            android:orientation="horizontal"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/profile_title_txtvw"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/divider"
+
+            android:paddingLeft="8dp"
+            android:textColor="@color/primary_text"
+            android:textSize="16sp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profile_menu_recvw" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/profile_prof_pic_imvw"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="8dp"
+
+        android:src="@drawable/stock_profile_pic_2_205x205"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_menu_layout" />
+
+    <Button
+        android:id="@+id/profile_change_prof_pic_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@color/primary_dark"
+        android:paddingLeft="8dp"
+
+        android:paddingRight="8dp"
+        android:text="@string/change_profile_picture"
+        android:textColor="@color/primary_text"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_prof_pic_imvw" />
+
+    <EditText
+        android:id="@+id/profile_nickname_edttxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="96dp"
+
+        android:ems="12"
+        android:hint="@string/nickname"
+
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/profile_email_edttxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_change_prof_pic_btn" />
+
+    <EditText
+        android:id="@+id/profile_email_edttxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+
+        android:ems="12"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_nickname_edttxt" />
+
+    <EditText
+        android:id="@+id/profile_phone_edttxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+
+        android:ems="12"
+        android:hint="@string/phone"
+        android:inputType="phone"
+
+        app:layout_constraintEnd_toEndOf="@+id/profile_email_edttxt"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/profile_email_edttxt"
+        app:layout_constraintTop_toBottomOf="@+id/profile_email_edttxt" />
+
+    <Button
+        android:id="@+id/profile_save_changes_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@color/primary_dark"
+        android:paddingLeft="8dp"
+
+        android:paddingRight="8dp"
+        android:text="@string/save_changes"
+        android:textColor="@color/primary_text"
+
+        app:layout_constraintEnd_toEndOf="@+id/profile_phone_edttxt"
+        app:layout_constraintStart_toStartOf="@+id/profile_phone_edttxt"
+        app:layout_constraintTop_toBottomOf="@+id/profile_phone_edttxt" />
+
+    <TextView
+        android:id="@+id/profile_logout_txtvw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:text="Logout"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/profile_save_changes_btn"
+        app:layout_constraintStart_toStartOf="@+id/profile_save_changes_btn"
+        app:layout_constraintTop_toBottomOf="@+id/profile_save_changes_btn" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

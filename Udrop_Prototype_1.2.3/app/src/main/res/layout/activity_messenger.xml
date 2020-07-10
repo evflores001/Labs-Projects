@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/accent"
+    tools:context=".Messages.MessengerActivity">
+
+
+    <TableLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+
+        android:layout_alignParentBottom="true"
+        android:stretchColumns="1,2"
+        android:gravity="top">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/messenger_menu_rv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/primary_dark"
+            android:orientation="horizontal"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/messenger_subject_edttxt"
+            android:layout_width="match_parent"
+            android:layout_height="61dp"
+            android:layout_margin="8dp"
+
+            android:ems="10"
+            android:hint="@string/subject"
+            android:inputType="textEmailAddress"
+
+            tools:layout_editor_absoluteX="1dp" />
+        <EditText
+            android:id="@+id/messenger_message_edttxt"
+            android:layout_width="match_parent"
+            android:layout_height="61dp"
+            android:layout_margin="8dp"
+
+            android:ems="10"
+            android:hint="@string/textMessage"
+            android:inputType="textEmailAddress"
+
+            tools:layout_editor_absoluteX="1dp" />
+        <TextView
+            android:id="@+id/messenger_locations_txtvw"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/divider"
+
+            android:textStyle="bold|italic"
+            android:gravity="center"
+            android:paddingLeft="8dp"
+            android:text="@string/messenger_locations"
+            android:textColor="@color/primary_text"
+            android:textSize="16sp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homepageMenu_RV" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/messenger_locations_rv"
+            android:layout_width="0dp"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            app:layout_constraintTop_toBottomOf="@id/messenger_locations_txtvw"
+            app:layout_constraintBottom_toTopOf="@+id/messenger_send_btn" />
+
+        <Button
+            android:id="@+id/messenger_send_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:hint="@string/send"
+            app:layout_constraintBottom_toTopOf="@+id/messenger_add_location_txtvw"
+            />
+        <TextView
+            android:id="@+id/messenger_add_location_txtvw"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/divider"
+
+            android:gravity="center"
+            android:paddingStart="8dp"
+            android:text="@string/add_location"
+            android:textColor="@color/primary_text"
+            android:textSize="16sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintBottom_toTopOf="@+id/messenger_back_btn"
+            />
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
+            <Button
+                android:id="@+id/messenger_back_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_column="1"
+                android:hint="@string/back"
+
+                app:layout_constraintTop_toBottomOf="@+id/messenger_message_edttxt"
+                tools:layout_editor_absoluteX="1dp" />
+
+            <Button
+                android:id="@+id/messenger_add_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_column="2"
+                android:hint="@string/add"
+
+                app:layout_constraintLeft_toRightOf="@+id/messenger_back_btn"
+                app:layout_constraintTop_toBottomOf="@+id/messenger_message_edttxt" />
+        </TableRow>
+    </TableLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

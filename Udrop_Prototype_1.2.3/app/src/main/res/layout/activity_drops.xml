@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_drops"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/accent"
+    tools:context=".Drops.DropsActivity">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/drops_top"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/drops_menu_recvw"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/primary_dark"
+            android:orientation="horizontal"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/drops_title_txtvw"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/divider"
+
+            android:paddingLeft="8dp"
+            android:textColor="@color/primary_text"
+            android:textSize="16sp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/drops_menu_recvw" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/drops_middle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintBottom_toTopOf="@+id/drops_bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/drops_top">
+
+        <fragment
+            android:id="@+id/drops_map_fragment"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="@+id/drops_middle"
+            app:layout_constraintBottom_toBottomOf="@+id/drops_middle"
+            app:layout_constraintStart_toStartOf="@+id/drops_middle"
+            app:layout_constraintEnd_toEndOf="@+id/drops_middle"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/drops_bottom"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/drops_top">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/drops_drops_recvw"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="8dp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

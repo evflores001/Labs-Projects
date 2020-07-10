@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_locations"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/accent"
+    tools:context="Locations.LocationsActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/locations_top_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/locations_menu_rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/primary_dark"
+            android:orientation="horizontal"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/locations_title_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/divider"
+
+            android:paddingLeft="8dp"
+            android:textColor="@color/primary_text"
+            android:textSize="16sp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/locations_menu_rv" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/locations_bottom_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/locations_top_layout">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/locations_locations_rv"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="8dp"
+
+            app:layout_constraintBottom_toTopOf="@+id/locations_new_location_et"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/locations_new_location_et"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="enter name for location"
+            app:layout_constraintBottom_toBottomOf="@+id/locations_new_location_btn"
+            app:layout_constraintEnd_toStartOf="@+id/locations_new_location_btn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/locations_new_location_btn" />
+
+        <Button
+            android:id="@+id/locations_new_location_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:paddingHorizontal="4dp"
+            android:text="New Location"
+            android:textColor="@color/primary_text"
+            android:background="@color/primary_dark"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

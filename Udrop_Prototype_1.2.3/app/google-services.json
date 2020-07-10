@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "394340762328",
+    "firebase_url": "https://udrop-testing.firebaseio.com",
+    "project_id": "udrop-testing",
+    "storage_bucket": "udrop-testing.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:394340762328:android:b7535ec40235c2dbba0dad",
+        "android_client_info": {
+          "package_name": "com.cbwise1997.udrop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "394340762328-p5td1r68hskhajbnl8jsn55kgmkqu0nq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLxfaxMNqTayXZxi1PPc7VGFGzMJmNZNs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "394340762328-p5td1r68hskhajbnl8jsn55kgmkqu0nq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
